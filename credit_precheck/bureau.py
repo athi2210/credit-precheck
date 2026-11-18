@@ -24,7 +24,7 @@ class FakeBureau:
 
 
 class StubBureau:
-    """Returns a canned report for system and acceptance tests."""
+    """Returns a canned report for system tests."""
 
     def __init__(self, report: CreditReport):
         self.report = report

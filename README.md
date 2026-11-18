@@ -1,8 +1,8 @@
 # credit-precheck
 
 > **This is a demo project.** It was built for a university talk on software
-> testing levels. Its only purpose is to show unit, integration, system and
-> acceptance tests on a small, understandable example. It is **not** a real
+> testing levels. Its only purpose is to show unit, integration and system
+> tests on a small, understandable example. It is **not** a real
 > credit-check system: there is no real credit bureau, no real ML model, no
 > database and no user interface, and the business rules are simplified.
 
@@ -83,8 +83,6 @@ There is one test per level. Each level asks a different question:
 | Unit | `tests/unit/test_rules.py` | Are the amount boundaries of `route()` correct? (999.99 / 1000.00 / 50000.00 / 50000.01) | none |
 | Integration | `tests/integration/test_service.py` | Does the service fall back to a loan officer when the bureau times out? | `FakeBureau(simulate_timeout=True)` |
 | System | `tests/system/test_end_to_end.py` | Does the whole application, called from outside, return a scored and explained decision? | `StubBureau.realistic()` |
-| Acceptance | `tests/acceptance/large_loans.feature` | Does a loan just above 50,000 € go to a human, as the business requires? Written in Gherkin, run with pytest-bdd. | `StubBureau.realistic()` |
-
 ## Setup
 
 Requires Python 3.11+.
@@ -111,9 +109,7 @@ unavailable) through the pre-check and prints each decision.
 |-------|---------|
 | Unit        | `pytest -m unit -v` |
 | Integration | `pytest -m integration -v` |
-| System      | `pytest -m system -v` |
-| Acceptance  | `pytest -m acceptance -v --gherkin-terminal-reporter` |
-| All         | `pytest -v` |
+| System      | `pytest -m system -v` || All         | `pytest -v` |
 
 ## About this project
 
